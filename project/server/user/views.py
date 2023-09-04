@@ -2,7 +2,7 @@
 
 
 from flask import render_template, Blueprint, url_for, redirect, flash, request
-from flask_login import login_user, logout_user, login_required
+from flask_login import login_user, logout_user, login_required, current_user
 
 from project.server import bcrypt, db
 from project.server.models import User
@@ -56,10 +56,17 @@ def logout():
 @user_blueprint.route("/members")
 @login_required
 def members():
-    return render_template("user/members.html")
+
+    return render_template("user/members.html", current_user=current_user)
 
 
 @user_blueprint.route("/orders")
 @login_required
 def orders():
     return render_template("user/orders.html")
+
+
+@user_blueprint.route("/dictionary")
+@login_required
+def dictionary():
+    return render_template("user/dictionary.html")
