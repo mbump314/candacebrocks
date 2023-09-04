@@ -1,27 +1,66 @@
 {% extends '_base.html' %}
 {% import "bootstrap/wtf.html" as wtf %}
 {% block content %}
-
-  <header class="content-header">
-    <h1>Login</h1>
-    <hr><br>
-  </header>
-
-  <br>
-
-  <form class="form" role="form" method="post" action="">
-    {{ form.csrf_token }}
-    {{ form.hidden_tag() }}
-    {{ wtf.form_errors(form, hiddens="only") }}
-
-    <div class="col-lg-4 col-sm-4">
-      {{ wtf.form_field(form.email) }}
-      {{ wtf.form_field(form.password) }}
-
-      <button class="btn btn-success" type="submit">Sign In!</button>
-      <br><br>
-      <p>Need to <a href="{{ url_for('user.register') }}">Register</a>?</p>
-    </div>
-  </form>
-
+		<!-- BEGIN login -->
+		<div class="login">
+			<!-- BEGIN login-content -->
+			<div class="login-content">
+				<form action="" role="form" method="POST" name="login_form">
+				{{ form.csrf_token }}
+				{{ form.hidden_tag() }}
+				{% for message in get_flashed_messages() %}
+				<div class="flash alert alert-dismissible fade show p-3" role="alert">{{ message }}</div>
+				{% endfor %}
+					<h1 class="text-center">Sign In</h1>
+					<div class="text-white text-opacity-50 text-center mb-4">
+						<p>For your protection, please verify your identity.</p>
+					</div>
+					<div class="mb-3">
+						{{ wtf.form_field(form.email) }}
+					</div>
+					<div class="mb-3">
+			  			{{ wtf.form_field(form.password) }}
+					</div>
+					<button type="submit" class="btn btn-outline-theme btn-lg d-block w-100 fw-500 mb-3">Sign In</button>
+					<div class="text-center text-white text-opacity-50">
+						Don't have an account yet? <a href="{{ url_for('user.register') }}">Sign up</a>.
+					</div>
+				</form>
+			</div>
+			<!-- END login-content -->
+		</div>
+		<!-- END login -->
 {% endblock %}
+
+<!--		<div id="content" class="app-content">-->
+
+<!--		  <header class="content-header">-->
+<!--			<h1>Login</h1>-->
+<!--			<hr><br>-->
+<!--		  </header>-->
+
+<!--		  <br>-->
+
+<!--		  <form class="form" role="form" method="post" action="">-->
+<!--			{{ form.csrf_token }}-->
+<!--			{{ form.hidden_tag() }}-->
+<!--			{{ wtf.form_errors(form, hiddens="only") }}-->
+
+<!--			<div class="col-lg-4 col-sm-4">-->
+<!--			  {{ wtf.form_field(form.email) }}-->
+<!--			  {{ wtf.form_field(form.password) }}-->
+
+<!--			  <button class="btn btn-success" type="submit">Sign In!</button>-->
+<!--			  <br><br>-->
+<!--			  <p>Need to <a href="{{ url_for('user.register') }}">Register</a>?</p>-->
+<!--			</div>-->
+<!--		  </form>-->
+<!--		</div>-->
+<!--		&lt;!&ndash; END #content &ndash;&gt;-->
+
+<!--		&lt;!&ndash; BEGIN btn-scroll-top &ndash;&gt;-->
+<!--		<a href="#" data-toggle="scroll-to-top" class="btn-scroll-top fade"><i class="fa fa-arrow-up"></i></a>-->
+<!--		&lt;!&ndash; END btn-scroll-top &ndash;&gt;-->
+
+<!--	</div>-->
+<!--	&lt;!&ndash; END #app &ndash;&gt;-->

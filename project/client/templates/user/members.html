@@ -1,7 +1,104 @@
 {% extends "_base.html" %}
 {% block content %}
 
-  <h1>Welcome, <em>{{ current_user.email }}</em>!</h1>
-  <h3>This is the members-only page.</h3>
+<!-- BEGIN #content -->
+<div id="content" class="app-content">
+	<ul class="breadcrumb">
+		<li class="breadcrumb-item"><a href="#">HOME</a></li>
+		<li class="breadcrumb-item active">MEMBERS PAGE</li>
+		</ul>
+		<h3>Welcome, <em>{{ current_user.email }}</em>!</h3>
+		<h4>Dura Automotive Systems Overview</h4>
+		<div>
+		{% for message in get_flashed_messages() %}
+			<div class="flash alert alert-dismissible fade show p-3" role="alert">{{ message }}</div>
+		{% endfor %}
+		<br>
+		</div>
+
+<div class="row">
+	<div class=" col-3 mb-3">
+		<div class="hljs-container border-0">
+			<a href="#" class="card text-decoration-none">
+			<div class="card-body d-flex align-items-center text-white m-5px bg-primary bg-opacity-40">
+			<div class="flex-fill">
+				<div class="mb-1"><h4>Mechatronics Projects</h4></div>
+				<h2>55</h2><h5>Open Projects</h5>
+			</div>
+			<div class="opacity-5">
+			  <i class="bi bi-wrench fa-4x"></i>
+			</div>
+			</div>
+
+		  <!-- card-arrow -->
+		  <div class="card-arrow">
+			<div class="card-arrow-top-left"></div>
+			<div class="card-arrow-top-right"></div>
+			<div class="card-arrow-bottom-left"></div>
+			<div class="card-arrow-bottom-right"></div>
+		  </div>
+		</a>
+		</div>
+	</div>
+</div>
+<!--			Second row-->
+<div class="row">
+	<div class=" col-3 mb-3">
+		<div class="hljs-container border-0">
+			<a href="#" class="card text-decoration-none">
+			<div class="card-body d-flex align-items-center text-white m-5px bg-primary bg-opacity-40">
+			<div class="flex-fill">
+				<div class="mb-1"><h4>Loop 1</h4></div>
+				<h6>13 - EB40</h6>
+				<h6>25 - EB42</h6>
+			</div>
+			<div class="opacity-5">
+			  <i class="bi bi-wrench fa-4x"></i>
+			</div>
+			</div>
+
+		  <!-- card-arrow -->
+		  <div class="card-arrow">
+			<div class="card-arrow-top-left"></div>
+			<div class="card-arrow-top-right"></div>
+			<div class="card-arrow-bottom-left"></div>
+			<div class="card-arrow-bottom-right"></div>
+		  </div>
+		</a>
+		</div>
+	</div>
+		<div class="col-3 mb-3">
+			<div class="hljs-container border-0">
+				<a href="#" class="card text-decoration-none">
+				<div class="card-body d-flex align-items-center text-white m-5px bg-primary bg-opacity-40">
+				<div class="flex-fill">
+					<div class="mb-1"><h4>Loop 2</h4></div>
+						<h6>13 - EB40</h6>
+						<h6>26 - EB42</h6>
+				</div>
+				<div class="opacity-5">
+				  <i class="bi bi-bug fa-4x"></i>
+				</div>
+				</div>
+
+			  <!-- card-arrow -->
+			  <div class="card-arrow">
+				<div class="card-arrow-top-left"></div>
+				<div class="card-arrow-top-right"></div>
+				<div class="card-arrow-bottom-left"></div>
+				<div class="card-arrow-bottom-right"></div>
+			  </div>
+			</a>
+			</div>
+
+		</div>
+</div>
+
+<!-- BEGIN btn-scroll-top -->
+<a href="#" data-toggle="scroll-to-top" class="btn-scroll-top fade"><i class="fa fa-arrow-up"></i></a>
+<!-- END btn-scroll-top -->
+
+</div>
+<!-- END #app -->
 
 {% endblock %}

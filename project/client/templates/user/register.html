@@ -2,27 +2,47 @@
 {% import "bootstrap/wtf.html" as wtf %}
 {% block content %}
 
-  <header class="content-header">
-    <h1>Register</h1>
-    <hr><br>
-  </header>
+<body class='pace-top'>
+	<!-- BEGIN #app -->
+	<div id="app" class="app app-full-height app-without-header">
+		<!-- BEGIN register -->
+		<div class="register">
+			<!-- BEGIN register-content -->
+			<div class="register-content">
+				<form role="form" method="POST" action="" name="register_form">
+					{{ form.csrf_token }}
+					{{ form.hidden_tag() }}
+					{{ wtf.form_errors(form, hiddens="only") }}
+					<h1 class="text-center">Sign Up</h1>
+					<p class="text-white text-opacity-50 text-center">One Admin ID is all you need to access all the Admin services.</p>
+					<div class="mb-3">
+      					{{ wtf.form_field(form.email) }}
+					</div>
+					<div class="mb-3">
+	      				{{ wtf.form_field(form.password) }}
+					</div>
+					<div class="mb-3">
+      					{{ wtf.form_field(form.confirm) }}
+                    </div>
+					<div class="mb-3">
+						<button type="submit" class="btn btn-outline-theme btn-lg d-block w-100">Register</button>
+					</div>
+					<div class="text-white text-opacity-50 text-center">
+						Already have an Admin ID? <a href="{{ url_for('user.login') }}">Sign In</a>
+					</div>
+				</form>
+			</div>
+			<!-- END register-content -->
+		</div>
+		<!-- END register -->
 
-  <br>
+		<!-- BEGIN btn-scroll-top -->
+		<a href="#" data-toggle="scroll-to-top" class="btn-scroll-top fade"><i class="fa fa-arrow-up"></i></a>
+		<!-- END btn-scroll-top -->
+	</div>
+	<!-- END #app -->
 
-  <form class="form" role="form" method="post" action="">
-    {{ form.csrf_token }}
-    {{ form.hidden_tag() }}
-    {{ wtf.form_errors(form, hiddens="only") }}
-
-    <div class="col-lg-4 col-sm-4">
-      {{ wtf.form_field(form.email) }}
-      {{ wtf.form_field(form.password) }}
-      {{ wtf.form_field(form.confirm) }}
-
-      <button class="btn btn-success" type="submit">Register!</button>
-      <br><br>
-      <p>Already have an account? <a href="{{ url_for('user.login') }}">Sign in</a>.</p>
-    </div>
-  </form>
+</body>
+</html>
 
 {% endblock %}
